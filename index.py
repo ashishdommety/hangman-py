@@ -4,7 +4,6 @@ def all_guesses(guesses_left):
   print("\n" * 50)
   answer = list("_" * len(key))
   key = list(key)
-  # print(type(key))
   print('\nHello Player 2!\n')
 
   while guesses_left != 0:
@@ -13,7 +12,7 @@ def all_guesses(guesses_left):
     if (guess in key):
       # you already entered this answer
       if (guess in answer):
-        print("it exists but is recurring")
+        print("you already entered this letter")
       else:
         # check for repeating letter
         for i in range(len(key)):

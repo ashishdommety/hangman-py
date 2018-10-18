@@ -4,24 +4,30 @@ def all_guesses(guesses_left):
   print("\n" * 50)
   answer = list("_" * len(key))
   key = list(key)
-
+  # print(type(key))
   print('\nHello Player 2!\n')
 
   while guesses_left != 0:
-    guess = input("You have "+ str(guesses_left) +" attempts left")
+    guess = input("Your guess:")
     # Check if element exists in key
     if (guess in key):
-      print('you got it!\n')
-      # print(answer[key.index(guess)])
-      answer[key.index(guess)] = guess
-      if("_" not in answer):
-        print('you win!!!!!')
-        return
-      print("".join(answer))
+      # you already entered this answer
+      if (guess in answer):
+        print("it exists but is recurring")
+      else:
+        # check for repeating letter
+        for i in range(len(key)):
+          if key[i] == guess:
+            answer[i] = guess
+
+        if("_" not in answer):
+          print('you win!!!!!')
+          return
+        print("".join(answer))
     # if it doesn't, ask user to try again
     else:
-      print('oops, wrong guess... try again\n')
-      guesses_left = guesses_left - 1 
+      print("oops, wrong guess...You have "+ str(guesses_left - 1) +" attempts left\n")
+      guesses_left = guesses_left - 1
   
   print('You lose')
 

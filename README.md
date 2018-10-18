@@ -1,2 +1,2 @@
-# hangman-py
-A word guessing game written in Python!
+# 🐍 Hangman-py 
+🔍 📝 A word guessing game written in Python!
